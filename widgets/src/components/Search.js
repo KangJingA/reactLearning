@@ -5,7 +5,29 @@ const Search = () => {
 
     const [term, setTerm] = useState('');
     const [results, setResults] = useState([]);
+    const [debouncedTerm,setDebouncedTerm] = useState(term);
     console.log('I run with every render');
+
+    // only to update debounced term
+    useEffect(()=> {
+        // search immediately at initalization
+        // only when hardcoded first search term state 
+        // if (term && !results.length){
+        //     search();
+        // } else {
+
+        // };
+
+        // only search after 500ms
+        const timeoutId = setTimeout(() => {
+                setDebouncedTerm(term);
+        }, 500);
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
+        
+    },[term])
 
     //need to config to tell it when to run - empty array, array, no array at all
     useEffect(() => {
@@ -18,18 +40,18 @@ const Search = () => {
                     list: 'search',
                     origin: '*',
                     format: 'json',
-                    srsearch: term
-                    }
-            })
+                    srsearch: debouncedTerm,
+                    },
+            });
 
             setResults(data.query.search);
-        }
+        };
         
-        // cannot search without string param
-        if (term){
-            search()
-        }
-    }, [term]) // only will run when term changes 
+        if (debouncedTerm) {
+            search();
+        };
+
+    }, [debouncedTerm]); // only will run when term changes 
 
     // dangerouslySetInnerHTML -> makes you vulerable to xxs (cross site scripting) attack. with embedded js code in the html
     const renderedResults = results.map((result)=> {
