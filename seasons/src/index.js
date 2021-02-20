@@ -46,7 +46,7 @@ class App extends React.Component { // borrowing other methods from React.compon
     }
 
     componentDidUpdate(){
-        console.log('Component was just updated, it rerendered')
+        console.log('Component was just updated, it rerendered.')
     }
 
     // help function
