@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Accordion from './components/Accordion';
 import Search from './components/Search';
+import Dropdown from './components/Dropdown';
+import Translate from './components/Translate';
+import reactDom from 'react-dom';
 
 const items = [
     {
@@ -16,13 +19,41 @@ const items = [
       content: 'You use React by creating components',
     },
   ];
-  
-export default () => {
 
-    return (
-        <div>
-            {/* <Accordion items={items}/> */}
-            <Search />
-        </div>
-    )
+  // passed down to options component as props
+const options = [
+    {
+      label: 'The Color Red',
+      value: 'red'
+    },
+    {
+      label: 'The Color Green',
+      value: 'green'
+    },
+    {
+      label: 'A shade of blue',
+      value: 'blue'
+    }
+]
+
+export default () => {
+  // const [selected,setSelected] = useState(options[0]);
+  // const [showDropdown, setShowDropdown] = useState(true);
+
+  return (
+      <div>
+          {/* <Accordion items={items}/> */}
+          {/* <button onClick={()=>setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
+          {showDropdown ? 
+            <Dropdown
+            selected={selected}
+            onSelectedChange={setSelected} 
+            options={options} 
+            /> 
+            : null
+          }
+           */}
+           <Translate />
+      </div>
+  )
 };
