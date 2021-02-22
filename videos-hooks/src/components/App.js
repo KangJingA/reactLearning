@@ -14,7 +14,7 @@ const App = () => {
   useEffect(()=> {
     setSelectedVideo(videos[0])
   }, [videos]);
-  
+
   return (
     <div className="ui container">
       <SearchBar onFormSubmit={search} />
