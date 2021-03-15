@@ -54,21 +54,7 @@ const Search = () => {
     }, [debouncedTerm]); // only will run when term changes 
 
     // dangerouslySetInnerHTML -> makes you vulerable to xxs (cross site scripting) attack. with embedded js code in the html
-    const renderedResults = results.map((result)=> {
-        return (
-            <div key={result.pageid} className="item">
-                <div className="right floated content">
-                    <a className="ui button" href={`https://en.wikipedia.org?curid=${result.pageid}`}>Go</a>
-                </div>
-                <div className="content">
-                    <div className="header">
-                        {result.title}
-                    </div>
-                    <span dangerouslySetInnerHTML={{ __html: result.snippet}}></span>
-                </div>
-            </div>
-        )
-    })
+    
     return (
         <div>
             <div className="ui form">
