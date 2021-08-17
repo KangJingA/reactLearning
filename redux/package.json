@@ -15,6 +15,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "loadash": "^1.0.0"
+    "loadash": "^1.0.0",
+    "redux": "^4.0.5"
   }
 }
