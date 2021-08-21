@@ -2,7 +2,7 @@ import Header from "./containers/Header";
 import ProductListing from "./containers/ProductListing";
 import ProductDetail from "./containers/ProductDetail";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
+import "./App.css";
 function App() {
   return (
     <div className="App">
